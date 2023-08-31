@@ -8,13 +8,14 @@ gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 const animations = () => {
-    const tlCode = gsap.timeline()
-
-    function vhToPixels(vh) {
-        return (vh * window.innerHeight) / 100;
+    const isMouseDevice = () => {
+        return window.matchMedia('(pointer: fine)').matches
     }
 
-    tlCode.to('.home-code-1', {
+    const tlCode = gsap.timeline()
+
+    tlCode
+    .to('.home-code-1', {
         opacity: 1,
         duration: 0.3,
         repeat: 3,
@@ -40,7 +41,7 @@ const animations = () => {
         stagger: 0.15
     }, '+=0.3')
     .set('.home-code',{
-        yPercent: -100
+        yPercent: -300
     })
     .fromTo('.cursor-1', {
         opacity: 1,
@@ -81,17 +82,25 @@ const animations = () => {
         duration: 0.2,
         stagger: 0.1
     }, '>')
+    .from('.header-burger', {
+        scale: 0,
+        duration: 0.2,
+    }, '>')
+    .from('.home-bottom', {
+        opacity: 1,
+        yPercent: 500,
+        duration: 1
+    }, '<')
     .to('.home-bottom', {
         opacity: 1,
-        y: -(vhToPixels(100) / 1.8),
         duration: 1
     }, '<')
     .to('.home-robot', {
-        y: (vhToPixels(100) / 1.8),
+        yPercent: 500,
         duration: 1
     }, '>')
     .set('.home-robot', {
-        yPercent: 100
+        opacity: 0
     })
     .to('.home-more', {
         scale: 1.3,
@@ -101,42 +110,43 @@ const animations = () => {
     })
     .from('.logo-1', {
         opacity: 0,
-        y: 1000,
-        rotation: 3600,
-        duration: 3
+        y: 100,
+        x: -80,
+        rotation: 360,
+        duration: 2
     }, '-=6')
     .from('.logo-2', {
         opacity: 0,
-        y: 1000,
-        x: 800,
-        rotation: 3600,
-        duration: 3
+        y: 100,
+        x: -80,
+        rotation: 360,
+        duration: 2
     }, '<')
     .from('.logo-3', {
         opacity: 0,
-        y: 1000,
-        x: -700,
-        rotation: 3600,
-        duration: 3
+        y: 100,
+        x: -70,
+        rotation: 360,
+        duration: 2
     }, '<')
     .from('.logo-4', {
         opacity: 0,
-        y: -1000,
-        x: 700,
-        rotation: 3600,
-        duration: 3
+        y: -100,
+        x: -70,
+        rotation: 360,
+        duration: 2
     }, '<')
     .from('.logo-5', {
         opacity: 0,
-        y: 1000,
-        x: 800,
-        rotation: 3600,
-        duration: 3
+        y: -100,
+        x: -80,
+        rotation: 360,
+        duration: 2
     }, '<')
     .to('.header-logo-item', {
         scale: 0.85,
         duration: 0.4
-    }, '-=2.5');
+    }, '-=3.5');
 
 
 
@@ -190,9 +200,9 @@ const animations = () => {
         stagger: 0.2
     })
 
-    gsap.from('.about-bio-photo', {
+    gsap.from('.about-bio-background', {
         scrollTrigger: {
-            trigger: '.about-bio-photo',
+            trigger: '.about-bio-background',
             start: '20px 85%',
         },
         opacity: 0,
@@ -214,11 +224,12 @@ const animations = () => {
     const tlAbout = gsap.timeline({
         scrollTrigger: {
             trigger: '.about-tree',
-            start: '-90px 40%'
+            start: 'center 95%'
         },
     })
 
-    tlAbout.from('.about-tree', {
+    tlAbout
+    .from('.about-tree', {
         opacity: 0,
         xPercent: -300,
         duration: 1,
@@ -254,7 +265,41 @@ const animations = () => {
 
 
     const skills = document.querySelectorAll('.skills-grid-item');
+
     skills.forEach(item => {
+        const name = item.querySelector('.skills-grid-name');
+        const descr = item.querySelector('.skills-grid-description');
+
+        item.addEventListener('touchstart', () => {
+            if(!item.classList.contains('active')){
+                item.classList.add('active');
+
+                gsap.to(name, {
+                    opacity: 0.9,
+                    y: 20,
+                    duration: 0.5,
+                })
+                gsap.to(descr, {
+                    opacity: 0.9,
+                    y: -20,
+                    duration: 0.5,
+                })
+            } else {
+                gsap.to(name, {
+                    opacity: 0,
+                    y: -20,
+                    duration: 0.5,
+                })
+                gsap.to(descr, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.5,
+                })
+
+                item.classList.remove('active')
+            }
+        })
+
         item.addEventListener('mouseenter', () => {
             const name = item.querySelector('.skills-grid-name');
             const descr = item.querySelector('.skills-grid-description');
@@ -269,11 +314,8 @@ const animations = () => {
                 y: -20,
                 duration: 0.5,
             })
-
         })
-    })
 
-    skills.forEach(item => {
         item.addEventListener('mouseleave', () => {
             const name = item.querySelector('.skills-grid-name');
             const descr = item.querySelector('.skills-grid-description');
@@ -288,7 +330,6 @@ const animations = () => {
                 y: 20,
                 duration: 0.5,
             })
-
         })
     })
 
@@ -305,6 +346,22 @@ const animations = () => {
     })
 
 
+    const worksPics = document.querySelectorAll('.works-picture-img');
+    worksPics.forEach(item => {
+        item.addEventListener('touchstart', () => {
+            if(!item.classList.contains('touched')){
+                item.classList.add('touched');
+            } else {
+                item.classList.remove('touched');
+            }
+        })
+        item.addEventListener('mouseenter', () => {
+            item.classList.add('touched');
+        })
+        item.addEventListener('mouseleave', () => {
+            item.classList.remove('touched');
+        })
+    })
 
     const worksBtns = document.querySelectorAll('.works-btn');
     worksBtns.forEach(item => {
@@ -377,68 +434,47 @@ const animations = () => {
         });
     })
 
-    
-
-    gsap.from('.contact-social-text', {
-        scrollTrigger: {
-            trigger: '.contact-subtitle',
-            start: 'center 85%',
-        },
-        opacity: 0,
-        xPercent: -300,
-        duration: 2,
-        ease: 'back.out(2)'
-    })
-
-    gsap.from('.contact-form-text', {
-        scrollTrigger: {
-            trigger: '.contact-subtitle',
-            start: 'center 85%',
-        },
-        opacity: 0,
-        xPercent: 300,
-        duration: 2,
-        ease: 'back.out(2)'
-    })
-
-    gsap.from('.contact-social-item', {
-        scrollTrigger: {
-            trigger: '.contact-social-items',
-            start: 'bottom 85%',
-        },
-        opacity: 0,
-        yPercent: 60,
-        duration: 2,
-        ease: "elastic.out(1, 0.3)",
-        stagger: 0.2
-    })
-
-    gsap.from('.contact-form-peace', {
-        scrollTrigger: {
-            trigger: '.contact-form-form',
-            start: 'center 85%',
-            markers: true
-        },
-        opacity: 0,
-        scale: 0,
-        duration: 2,
-        stagger: 0.2
-    })
 
 
 
     const tlContact = gsap.timeline({
         scrollTrigger: {
-            trigger: '.contact-social-items',
-            start: 'bottom 85%',
+            trigger: '.contact-subtitle',
+            start: 'center 85%',
         },
     })
 
-    tlContact.from('.contact-resume', {
+    tlContact
+    .from('.contact-social-text',{
+        opacity: 0,
+        xPercent: -300,
+        duration: 2,
+        ease: 'back.out(2)'
+    })
+    .from('.contact-social-item', {
+        opacity: 0,
+        yPercent: 60,
+        duration: 2,
+        ease: "elastic.out(1, 0.3)",
+        stagger: 0.2
+    }, '-=1')
+    .from('.contact-form-text', {
+        opacity: 0,
+        xPercent: 300,
+        duration: 2,
+        ease: 'back.out(2)'
+    }, '-=2')
+    .from('.contact-form-peace', {
+        opacity: 0,
+        scale: 0,
+        duration: 2,
+        stagger: 0.2
+    }, '-=1.5')
+    .from('.contact-resume', {
         opacity: 0,
         xPercent: -300,
         duration: 1,
-    })
+    }, '-=1.2')
     .to('.contact-robot',{
         xPercent: -5000,
         duration: 3,
@@ -447,6 +483,7 @@ const animations = () => {
         opacity: 0,
         duration: 0.1,
     }, '>')
+
 
     const socialIcons = document.querySelectorAll('.contact-social-item');
     socialIcons.forEach(item => {

@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexander Moroz | Portfolio website</title>
+    <title>Alexander Moroz | Frontend developer</title>
+    <meta name="title" content="Alexander Moroz | Frontend developer">
+    <meta name="description" content="Here you can see my work and learn more about me">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icons/favicon/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/favicon/apple-touch-icon.png">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
@@ -44,6 +50,23 @@
                     <a class="header-link "href="#works"><li class="header-item">Projects</li></a>
                     <a class="header-link "href="#contact"><li class="header-item">Contact</li></a>
                 </ul>
+                <div class="header-burger">
+                    <div class="header-burger-line"></div>
+                    <div class="header-burger-line"></div>
+                    <div class="header-burger-line"></div>
+                </div>
+                <div class="header-overlay">
+                    <div class="header-overlay-wrapper">
+                        <div class="header-overlay-close">&#10006;</div>
+                        <ul class="header-overlay-menu">
+                            <a class="header-overlay-link" href="#"><li class="header-overlay-item">Home</li></a>
+                            <a class="header-overlay-link" href="#about"><li class="header-overlay-item">About</li></a>
+                            <a class="header-overlay-link" href="#skills"><li class="header-overlay-item">Skills</li></a>
+                            <a class="header-overlay-link" href="#works"><li class="header-overlay-item">Projects</li></a>
+                            <a class="header-overlay-link" href="#contact"><li class="header-overlay-item">Contact</li></a>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -130,11 +153,13 @@
                         </div>
                     </div>
                     <div class="about-bio">
-                        <div class="about-bio-photo"></div>
+                        <div class="about-bio-background">
+                            <img class="about-bio-photo" src="img/photo.png" alt="">
+                        </div>
                         <div class="about-bio-text">
                             <h3 class="about-bio-title">Who's this guy?</h3>
                             <div class="about-bio-description">
-                                Passionate frontend developer with a with a deep love for crafting elegant and interactive user experiences.A keen eye for design and an understanding of UI/UX principles drive my commitment to creating seamless and responsive web applications. Got a drive to stay updated with the latest industry trends.
+                                Frontend developer with a with a deep love for crafting elegant and interactive user experiences. A keen eye for design and an understanding of UI/UX principles drive my commitment to creating responsive web applications. Got a drive to stay updated with the latest industry trends.
                                 <a href="#contact" class="about-bio-link">Let's make something special!</a>
                             </div>
                         </div>
@@ -270,19 +295,19 @@
                     <span class="works-title-underline title-underline"></span>
                 </div>
                 <div class="works-all">
-                    <div class="works-item">
+                    <div class="works-item works-item-l">
                         <div class="works-picture">
                             <img src="img/WHR.png" alt="application-screenshot" class="works-picture-img works-picture-l">
                         </div>
                         <div class="works-describe">
                             <div class="works-name">Weather here</div>
-                            <div class="works-description">Cross-platform application for detailed determination of current and future weather anywhere in the world. <br> 
-                            Used: <span class="works-used">React / REST API</span>
+                            <div class="works-description">Cross-platform application to check current and future weather anywhere in the world. <br> 
+                            Used: <span class="works-used">React / RESTful API</span>
                             </div>
                             <a href="https://weather-here.vercel.app"><button class="works-btn works-btn-l">&larr;&nbsp;&nbsp;Visit</button></a>
                         </div>
                     </div>
-                    <div class="works-item">
+                    <div class="works-item works-item-r">
                         <div class="works-describe">
                             <div class="works-name">Desktop chess</div>
                             <div class="works-description">Desktop application for playing chess with a history of moves and various time limits. <br> 
@@ -294,14 +319,14 @@
                             <img src="img/chessR.png" alt="application-screenshot" class="works-picture-img works-picture-r">
                         </div>
                     </div>
-                    <div class="works-item">
+                    <div class="works-item works-item-l">
                         <div class="works-picture">
                             <img src="img/yummyR.png" alt="application-screenshot" class="works-picture-img works-picture-l">
                         </div>
                         <div class="works-describe">
                             <div class="works-name">Yummy</div>
-                            <div class="works-description">Сross-platform application for finding recipes for every taste with plenty filters. <br> 
-                            Used: <span class="works-used">React / REST API</span>
+                            <div class="works-description">Сross-platform application for finding recipes for every taste with plenty of filters. <br> 
+                            Used: <span class="works-used">React / RESTful API</span>
                             </div>
                             <a href="https://yummy-eight.vercel.app"><button class="works-btn works-btn-l">&larr;&nbsp;&nbsp;Visit</button></a>
                         </div>
@@ -324,29 +349,28 @@
                     <div class="contact-social-text"> via social media:</div>
                     <div class="contact-social-items">
                         <div class="contact-social-item">
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/alexander-moroz-991h/">
                                 <img src="img/icons/icons.svg#linkedin" alt="" class="contact-social-img">
                             </a>
                         </div>
                         <div class="contact-social-item">
-                            <a href="#">
+                            <a href="https://github.com/Honeybadger991">
                                 <img src="img/icons/icons.svg#github" alt="" class="contact-social-img">
                             </a>
                         </div>
                         <div class="contact-social-item">
-                            <a href="#">
+                            <a href="https://instagram.com/honeybadger_991">
                                 <img src="img/icons/icons.svg#instagram" alt="" class="contact-social-img">
                             </a>
                         </div>
                         <div class="contact-social-item">
-                            <a href="#">
+                            <a href="https://t.me/Honeybadger991">
                                 <img src="img/icons/icons.svg#telegram" alt="" class="contact-social-img">
                             </a>
                         </div>
                     </div>
                     <div class="contact-resume">
-                        <a class="contact-resume-link" href="https://drive.google.com/uc?export=download&id=1KEat11QAUEiOjEmXYuqT6UnT25LScf_Q">download resume</a>
-                        
+                        <a class="contact-resume-link" href="https://drive.google.com/uc?export=download&id=1IKbM1PxrP8bRF4oGpH8t2vaenNmUmZfE">download resume</a>
                         <div class="robot contact-robot">
                             <div class="robot-claws contact-robot-claws">                    
                                 <div class="robot-claws-l contact-robot-claws-l claw"></div>
@@ -377,7 +401,7 @@
     </section>
     <footer class="footer">
         <div class="container">
-            <div class="footer-text">Moroz Alexander©2023</div>
+            <div class="footer-text"><span class="footer-text-name">Alexander Moroz </span>©2023</div>
         </div>
     </footer>
 
