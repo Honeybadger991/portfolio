@@ -45,6 +45,12 @@ html {
   justify-content: center;
 }
 
+.footer > .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .head {
   display: flex;
   justify-content: center;
@@ -759,9 +765,6 @@ html {
   border-top: 1px dashed var(--green);
   height: 40px;
   background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .footer-text {
   text-align: center;

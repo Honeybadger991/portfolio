@@ -56,6 +56,11 @@ html{
     flex-direction: column;
     justify-content: center;
 }
+.footer > .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .head{
     @include flex-center;
@@ -757,7 +762,6 @@ html{
     border-top: 1px dashed var(--green);
     height: 40px;
     background-color: black;
-    @include flex-center;
     &-text{
         text-align: center;
         font-weight: 700;
