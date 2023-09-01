@@ -46,8 +46,15 @@ html{
 
 .container{
     width: 1170px;
+    height: 100%;
     padding: 0 15px;
     margin: 0 auto;
+}
+
+.header > .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .head{
@@ -934,10 +941,9 @@ html{
     .robot{
         display: none;
     }
-    // .about, .skills, .works, .contact{
-    //     padding: 40px 0 50px;
-    // }
     .header{
+        padding: 0.5vh 0;
+        height: 7vh;
         min-height: 40px;
         &-wrapper{
             min-height: 40px;
@@ -962,6 +968,7 @@ html{
         }
     }
     .home{
+        height: 93vh;
         &-greeting{
             width: 520px;
             height: 100px;

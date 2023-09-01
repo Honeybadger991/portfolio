@@ -87,7 +87,7 @@ const animations = () => {
         duration: 0.2,
     }, '>')
     .from('.home-bottom', {
-        opacity: 1,
+        opacity: 0,
         yPercent: 500,
         duration: 1
     }, '<')

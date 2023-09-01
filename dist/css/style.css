@@ -34,8 +34,15 @@ html {
 
 .container {
   width: 1170px;
+  height: 100%;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.header > .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .head {
@@ -905,6 +912,8 @@ html {
     display: none;
   }
   .header {
+    padding: 0.5vh 0;
+    height: 7vh;
     min-height: 40px;
   }
   .header-wrapper {
@@ -927,6 +936,9 @@ html {
   }
   .header-burger {
     display: flex;
+  }
+  .home {
+    height: 93vh;
   }
   .home-greeting {
     width: 520px;
